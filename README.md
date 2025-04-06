@@ -1,7 +1,3 @@
-Here's the **README** in English for the **BrokoliSQL** project:
-
----
-
 # **BrokoliSQL**
 
 **BrokoliSQL** is a Python script designed to facilitate the conversion of CSV and Excel files into SQL insertion commands. It reads a CSV or Excel file and generates SQL `INSERT INTO` commands based on the columns in the file. The generated commands are then written to a specified output file.
