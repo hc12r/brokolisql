@@ -3,7 +3,15 @@ from utils.file_loader import load_file
 from services.sql_generator import generate_sql
 from output.output_writer import write_output
 
+def print_banner():
+    with open('banner.txt', 'r') as f:
+        banner = f.read()
+    print(f"{banner}")
+
+
+
 def main():
+    print_banner()
     parser = argparse.ArgumentParser(description="BrokoliSQL - Convert CSV/Excel to SQL INSERT statements")
     parser.add_argument('--input', required=True, help='Path to the input CSV or Excel file')
     parser.add_argument('--output', required=True, help='Path to the output SQL file')
