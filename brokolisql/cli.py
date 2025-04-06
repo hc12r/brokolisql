@@ -1,10 +1,10 @@
 import argparse
-from utils.file_loader import load_file
-from services.sql_generator import generate_sql
-from output.output_writer import write_output
+from brokolisql.utils.file_loader import load_file
+from brokolisql.services.sql_generator import generate_sql
+from brokolisql.output.output_writer import write_output
 
 def print_banner():
-    with open('banner.txt', 'r') as f:
+    with open('./banner.txt', 'r') as f:
         banner = f.read()
     print(f"{banner}")
 
@@ -21,9 +21,9 @@ def main():
 
     data,column_types = load_file(args.input)
 
-    sql_statements = generate_sql(data, args.table, column_types)
+    sql_statements = generate_sql(data, args.table)
 
     write_output(sql_statements, args.output)
-
+    print("\nDone!\nexiting...")
 if __name__ == '__main__':
     main()

@@ -1,6 +1,6 @@
 import pandas as pd
-from services import normalizer as normalizer
-from services import type_inference as type_inference
+from brokolisql.services import normalizer as normalizer
+from brokolisql.services import type_inference as type_inference
 import os
 
 def load_file(filepath):

@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+brokolisql/cli.py
+brokolisql.egg-info/PKG-INFO
+brokolisql.egg-info/SOURCES.txt
+brokolisql.egg-info/dependency_links.txt
+brokolisql.egg-info/entry_points.txt
+brokolisql.egg-info/requires.txt
+brokolisql.egg-info/top_level.txt
+brokolisql/output/output_writer.py
+brokolisql/services/normalizer.py
+brokolisql/services/sql_generator.py
+brokolisql/services/type_inference.py
+brokolisql/utils/file_loader.py

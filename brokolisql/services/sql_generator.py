@@ -1,9 +1,10 @@
 import pandas as pd
+from tqdm import tqdm
 
-def generate_sql(df, table_name, column_types):
+def generate_sql(df, table_name):
     sql_statements = []
-    columns = ', '.join([f'"{col}"' for col in df.columns])
-    for _, row in df.iterrows():
+    for _, row in tqdm(df.iterrows(), total=len(df), desc="Generating SQL"):
+        columns = ', '.join([f'"{col}"' for col in df.columns])
         values = ', '.join([format_value(val) for val in row])
         sql = f"INSERT INTO {table_name} ({columns}) VALUES ({values});"
         sql_statements.append(sql)
