@@ -40,10 +40,6 @@ python cli.py --input data.csv --output commands.sql --table products
 
 This will generate SQL commands to insert the data from `data.csv` into the `products` table, and save the commands in the `commands.sql` file.
 
-Perfeito! Aqui está uma sugestão de seção para adicionares ao teu `README.md`, explicando como instalar e usar o **BrokoliSQL** após a publicação no PyPI:
-
----
-
 You can install BrokoliSQL directly from [PyPI](https://pypi.org/) using pip:
 
 ```bash
