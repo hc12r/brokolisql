@@ -1,7 +1,8 @@
 def normalize_column_names(df):
     """
-    Normalize the column names by replacing spaces with underscores
-    and converting to uppercase.
+    Normalize the column names by replacing spaces with underscores,
+    removing special characters, and converting to uppercase.
     """
-    df.columns = [col.replace(' ', '_').upper() for col in df.columns]
+    import re
+    df.columns = [re.sub(r'[^\w]', '_', col).replace(' ', '_').upper() for col in df.columns]
     return df
