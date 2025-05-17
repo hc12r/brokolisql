@@ -150,19 +150,9 @@ brokolisql --input data.csv --output output.sql --table users --transform transf
       "columns": ["COUNTRY", "CITY", "GIVEN_NAME"],
       "ascending": true
     }
-    ,
-    {
-      "type": "aggregate",
-      "group_by": ["COUNTRY", "CITY"],
-      "aggregations": {
-        "CUSTOMER_COUNT": ["CUSTOMER_ID", "count"],
-        "EARLIEST_JOIN": ["df['SUBSCRIPTION_DATE']", "min"],
-        "LATEST_JOIN": ["df['SUBSCRIPTION_DATE']", "max"]
-      }
-    }
+
   ]
 }
-
 ```
 
 This enables flexible pre-processing logic during data conversion, such as cleaning strings, formatting dates, or extracting information.

@@ -55,15 +55,6 @@
       "columns": ["COUNTRY", "CITY", "GIVEN_NAME"],
       "ascending": true
     }
-    ,
-    {
-      "type": "aggregate",
-      "group_by": ["COUNTRY", "CITY"],
-      "aggregations": {
-        "CUSTOMER_COUNT": ["CUSTOMER_ID", "count"],
-        "EARLIEST_JOIN": ["df['SUBSCRIPTION_DATE']", "min"],
-        "LATEST_JOIN": ["df['SUBSCRIPTION_DATE']", "max"]
-      }
-    }
+
   ]
 }
