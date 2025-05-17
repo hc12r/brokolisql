@@ -14,7 +14,8 @@ class OracleDialect(SQLDialect):
         if pd.isna(val):
             return 'NULL'
         elif isinstance(val, str):
-            return f"'{val.replace("'", "''")}'"
+            escaped_val = val.replace("'", "''")
+            return f"'{escaped_val}'"
         elif isinstance(val, datetime):
             return f"TO_TIMESTAMP('{val.strftime('%Y-%m-%d %H:%M:%S')}', 'YYYY-MM-DD HH24:MI:SS')"
         elif isinstance(val, date):

@@ -15,7 +15,8 @@ class PostgresDialect(SQLDialect):
             return 'NULL'
         elif isinstance(val, str):
             # PostgreSQL standard escaping
-            return f"'{val.replace("'", "''")}'"
+            escaped_val = val.replace("'", "''")
+            return f"'{escaped_val}'"
         elif isinstance(val, datetime):
             return f"'{val.strftime('%Y-%m-%d %H:%M:%S')}'"
         elif isinstance(val, date):

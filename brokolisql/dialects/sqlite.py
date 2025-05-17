@@ -14,7 +14,8 @@ class SQLiteDialect(SQLDialect):
         if pd.isna(val):
             return 'NULL'
         elif isinstance(val, str):
-            return f"'{val.replace("'", "''")}'"
+            escaped_val = val.replace("'", "''")
+            return f"'{escaped_val}'"
         elif isinstance(val, (datetime, date)):
             return f"'{val}'"
         elif isinstance(val, bool):
