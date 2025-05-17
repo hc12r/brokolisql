@@ -1,0 +1,69 @@
+{
+  "transformations": [
+    {
+      "type": "rename_columns",
+      "mapping": {
+        "FIRST_NAME": "GIVEN_NAME",
+        "LAST_NAME": "SURNAME",
+        "PHONE_1": "PRIMARY_PHONE",
+        "PHONE_2": "SECONDARY_PHONE"
+      }
+    },
+    {
+      "type": "add_column",
+      "name": "FULL_NAME",
+      "expression": "FIRST_NAME + ' ' + LAST_NAME"
+    },
+    {
+      "type": "add_column",
+      "name": "SUBSCRIPTION_AGE_DAYS",
+      "expression": "(pd.Timestamp('today') - pd.to_datetime(df['SUBSCRIPTION_DATE'])).dt.days"
+    },
+    {
+      "type": "filter_rows",
+      "condition": "COUNTRY in ['USA', 'Canada', 'Norway', 'UK', 'Germany']"
+    },
+    {
+      "type": "apply_function",
+      "column": "EMAIL",
+      "function": "lower"
+    },
+    {
+      "type": "apply_function",
+      "column": "WEBSITE",
+      "function": "lower"
+    },
+    {
+      "type": "replace_values",
+      "column": "COUNTRY",
+      "mapping": {
+        "USA": "United States",
+        "UK": "United Kingdom"
+      }
+    },
+    {
+      "type": "drop_columns",
+      "columns": ["INDEX"]
+    },
+    {
+      "type": "add_column",
+      "name": "EMAIL_DOMAIN",
+      "expression": "EMAIL.str.split('@').str[1]"
+    },
+    {
+      "type": "sort",
+      "columns": ["COUNTRY", "CITY", "GIVEN_NAME"],
+      "ascending": true
+    }
+    ,
+    {
+      "type": "aggregate",
+      "group_by": ["COUNTRY", "CITY"],
+      "aggregations": {
+        "CUSTOMER_COUNT": ["CUSTOMER_ID", "count"],
+        "EARLIEST_JOIN": ["df['SUBSCRIPTION_DATE']", "min"],
+        "LATEST_JOIN": ["df['SUBSCRIPTION_DATE']", "max"]
+      }
+    }
+  ]
+}
