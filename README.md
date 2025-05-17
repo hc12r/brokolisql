@@ -178,6 +178,9 @@ PYTHONPATH=. python brokolisql/cli.py --input data.csv --output commands.sql --t
 ## **Project Structure**
 
 ```
+brokolisql/
+├── assets
+│   └── banner.txt
 ├── cli.py
 ├── dialects
 │   ├── base.py
@@ -193,6 +196,9 @@ PYTHONPATH=. python brokolisql/cli.py --input data.csv --output commands.sql --t
 │   ├── customers-100.csv
 │   ├── output.sql
 │   └── transforms.json
+├── exceptions
+│   ├── base.py
+│   └── __init__.py
 ├── output
 │   └── output_writer.py
 ├── services
