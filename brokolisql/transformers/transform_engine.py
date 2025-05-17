@@ -67,7 +67,7 @@ def apply_transformations(df, config_path):
                 if old_value is not None and new_value is not None:
                     df[column] = df[column].replace(old_value, new_value)
                 elif transform.get('mapping'):
-                    df[column] = df[column].replace(transform.get('mapping'))
+                     df.loc[:, column] = df[column].replace(transform.get('mapping'))
         
         elif transform_type == 'apply_function':
             column = transform.get('column', '')
@@ -78,7 +78,7 @@ def apply_transformations(df, config_path):
                 if function_name == 'upper':
                     df[column] = df[column].str.upper()
                 elif function_name == 'lower':
-                    df[column] = df[column].str.lower()
+                   df.loc[:, column] = df[column].str.lower()
                 elif function_name == 'strip':
                     df[column] = df[column].str.strip()
                 elif function_name == 'title':
