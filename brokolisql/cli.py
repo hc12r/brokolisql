@@ -5,18 +5,28 @@ from brokolisql.output.output_writer import write_output
 from brokolisql.dialects import get_dialect
 from brokolisql.exceptions import BrokoliSQLException
 import sys
+import importlib.resources
+from importlib.metadata import version, PackageNotFoundError
+
+try:
+    __version__ = brokoli_version = version("brokolisql") 
+except PackageNotFoundError:
+    print("BrokoliSQL version not found. Make sure the package is installed correctly.")
+    __version__ = "unknown"
 
 def print_banner():
     try:
-        with open('./banner.txt', 'r') as f:
+        from brokolisql import assets
+        with importlib.resources.open_text(assets, 'banner.txt') as f:
             banner = f.read()
-        print(f"{banner}")
-    except FileNotFoundError:
-        print("BrokoliSQL - CSV/Excel to SQL Converter")
+        print(banner)
+    except (FileNotFoundError, ImportError):
+        print("BrokoliSQL is a Python-based command-line tool designed to facilitate the conversion of structured data files—such as CSV, Excel, JSON, and XML—into SQL INSERT statements.")
 
 def main():
     print_banner()
     parser = argparse.ArgumentParser(description="BrokoliSQL - Convert CSV/Excel to SQL INSERT statements")
+    parser.add_argument('--version', action='version', version=f"BrokoliSQL {__version__}")
     parser.add_argument('--input', required=True, help='Path to the input CSV or Excel file')
     parser.add_argument('--output', required=True, help='Path to the output SQL file')
     parser.add_argument('--table', required=True, help='Name of the SQL table to insert into')
