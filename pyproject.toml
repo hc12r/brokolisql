@@ -1,6 +1,6 @@
 [project]
 name = "brokolisql"
-version = "0.1.6"
+version = "0.1.7"
 description = "BrokoliSQL is a Python-based command-line tool designed to facilitate the conversion of structured data files—such as CSV, Excel, JSON, and XML—into SQL INSERT statements. It solves common problems faced during data import, transformation, and database seeding by offering a flexible, extensible, and easy-to-use interface."
 readme = "README.md"
 requires-python = ">=3.7"
