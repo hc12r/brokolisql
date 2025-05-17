@@ -1,12 +1,13 @@
 [project]
 name = "brokolisql"
-version = "0.1.5"
-description = "Convert CSV and Excel files into SQL INSERT commands."
+version = "0.1.6"
+description = "BrokoliSQL is a Python-based command-line tool designed to facilitate the conversion of structured data files—such as CSV, Excel, JSON, and XML—into SQL INSERT statements. It solves common problems faced during data import, transformation, and database seeding by offering a flexible, extensible, and easy-to-use interface."
 readme = "README.md"
 requires-python = ">=3.7"
-license = {text = "MIT"}
+license = {text = "GPL"}
 authors = [
-    {name = "Pitch.ai", email = "pitch.ai@dsai.co.mz"}
+    {name = "Pitch.ai", email = "pitch.ai@dsai.co.mz"},
+    {name = "Abel Eduardo Mondlane", email = "abeleduardohc12@gmail.com"}
 ]
 keywords = ["csv", "excel", "sql", "converter", "data"]
 classifiers=[
@@ -17,7 +18,10 @@ classifiers=[
 
 dependencies = [
     "pandas",
-    "tqdm"
+    "tqdm",
+    "openpyxl",
+    "pyyaml",
+    "numpy"
 ]
 
 [project.scripts]
