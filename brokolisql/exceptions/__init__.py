@@ -4,4 +4,8 @@ from .base import (
     FileLoadError,
     FileParsingError,
     FileNotFound,
+    APIConnectionError,
+    APIResponseError,
+    DatabaseConnectionError,
+    DatabaseQueryError,
 )

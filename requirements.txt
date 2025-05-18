@@ -3,3 +3,5 @@ tqdm==4.67.1
 openpyxl>=3.0.0
 pyyaml>=5.1
 numpy>=1.18.0
+SQLAlchemy>=2.0.41
+ijson>=3.4.0
